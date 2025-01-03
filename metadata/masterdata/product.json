@@ -1,0 +1,201 @@
+{
+  "versions": {
+    "23": {
+      "version": 23,
+      "type": "",
+      "description": "Product schema version 23",
+      "_schema_version": 23,
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2024-12-31T16:53:24.397244",
+      "compatibility": "forward",
+      "node_metadata": {
+        "upgrade_behavior": "merge_data",
+        "versioning": "enabled",
+        "archive_old_versions": true,
+        "validation_on_update": true,
+        "audit_changes": true,
+        "cascade_delete": true
+      },
+      "fields": {
+        "code": {
+          "name": "code",
+          "type": "string",
+          "field_number": 1,
+          "required": true,
+          "description": "Product code",
+          "validation_mode": "strict"
+        },
+        "name": {
+          "name": "name",
+          "type": "string",
+          "field_number": 2,
+          "required": true,
+          "description": "Product name",
+          "validation_mode": "strict"
+        },
+        "description": {
+          "name": "description",
+          "type": "string",
+          "field_number": 3,
+          "required": false,
+          "description": "Product description",
+          "validation_mode": "none"
+        },
+        "price": {
+          "name": "price",
+          "type": "decimal",
+          "field_number": 4,
+          "required": true,
+          "min_value": "0",
+          "description": "Product price",
+          "validation_mode": "strict"
+        },
+        "unit": {
+          "name": "unit",
+          "type": "string",
+          "field_number": 5,
+          "required": true,
+          "description": "Unit of measure",
+          "validation_mode": "strict"
+        },
+        "status": {
+          "name": "status",
+          "type": "string",
+          "field_number": 6,
+          "required": true,
+          "default": "active",
+          "allowed_values": [
+            "active",
+            "inactive"
+          ],
+          "description": "Product status",
+          "validation_mode": "strict"
+        },
+        "product_type": {
+          "name": "product_type",
+          "type": "string",
+          "field_number": 7,
+          "description": "type",
+          "required": false,
+          "validation_mode": "strict"
+        },
+        "start_date": {
+          "name": "start_date",
+          "type": "DATE",
+          "field_number": 8,
+          "description": "start date",
+          "required": false,
+          "validation_mode": "strict"
+        },
+        "end_date": {
+          "name": "end_date",
+          "type": "DATE",
+          "field_number": 9,
+          "description": "end date",
+          "required": false,
+          "validation_mode": "strict"
+        }
+      }
+    },
+    "24": {
+      "version": 24,
+      "type": "masterdata/product",
+      "name": "masterdata/product",
+      "description": "Product schema version 23",
+      "_schema_version": 23,
+      "valid_from": "2024-12-31T16:53:24.397244",
+      "valid_to": null,
+      "compatibility": "forward",
+      "node_metadata": {
+        "archive_old_versions": "True",
+        "audit_changes": "False",
+        "cascade_delete": "True",
+        "upgrade_behavior": "merge_data",
+        "validation_on_update": "True",
+        "versioning": "enabled"
+      },
+      "fields": [
+        {
+          "name": "code",
+          "type": "string",
+          "field_number": 1,
+          "required": true,
+          "description": "Product code",
+          "validation_mode": "strict"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "field_number": 2,
+          "required": true,
+          "description": "Product name",
+          "validation_mode": "strict"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "field_number": 3,
+          "required": false,
+          "description": "Product description",
+          "validation_mode": "none"
+        },
+        {
+          "name": "price",
+          "type": "decimal",
+          "field_number": 4,
+          "required": true,
+          "min_value": "0",
+          "description": "Product price",
+          "validation_mode": "strict"
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "field_number": 5,
+          "required": true,
+          "description": "Unit of measure",
+          "validation_mode": "strict"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "field_number": 6,
+          "required": true,
+          "default": "active",
+          "allowed_values": [
+            "active",
+            "inactive"
+          ],
+          "description": "Product status",
+          "validation_mode": "strict"
+        },
+        {
+          "name": "product_type",
+          "type": "string",
+          "field_number": 7,
+          "description": "type",
+          "required": false,
+          "validation_mode": "strict"
+        },
+        {
+          "name": "start_date",
+          "type": "DATE",
+          "field_number": 8,
+          "description": "start date",
+          "required": false,
+          "validation_mode": "strict"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "description": "end date",
+          "required": false,
+          "validation_mode": "strict",
+          "field_number": 9,
+          "constraints": {}
+        }
+      ],
+      "upgrade_definitions": {}
+    }
+  }
+}

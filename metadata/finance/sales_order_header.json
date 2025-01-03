@@ -1,0 +1,210 @@
+{
+  "versions": {
+    "1": {
+      "version": 1,
+      "name": "sales_order_header",
+      "node_metadata": {
+        "upgrade_behavior": "merge_data",
+        "versioning": "enabled",
+        "archive_old_versions": true,
+        "validation_on_update": true,
+        "audit_changes": true,
+        "cascade_delete": true
+      },
+      "fields": {
+        "id": {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Unique identifier",
+          "field_number": 1
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "datetime",
+          "required": true,
+          "validation": "strict",
+          "description": "Creation timestamp",
+          "field_number": 2
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "datetime",
+          "required": true,
+          "validation": "strict",
+          "description": "Last update timestamp",
+          "field_number": 3
+        },
+        "customer_name": {
+          "name": "customer_name",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Customer name",
+          "field_number": 4
+        },
+        "customer_email": {
+          "name": "customer_email",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Customer email",
+          "field_number": 5
+        },
+        "customer_phone": {
+          "name": "customer_phone",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Customer phone",
+          "field_number": 6
+        },
+        "shipping_address": {
+          "name": "shipping_address",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Shipping address",
+          "field_number": 7
+        },
+        "order_date": {
+          "name": "order_date",
+          "type": "datetime",
+          "required": true,
+          "validation": "strict",
+          "description": "Order date",
+          "field_number": 8
+        },
+        "payment_method": {
+          "name": "payment_method",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Payment method",
+          "field_number": 9
+        },
+        "external_opportunity_id": {
+          "name": "external_opportunity_id",
+          "type": "string",
+          "required": false,
+          "validation": "none",
+          "description": "External opportunity ID for integration with other systems",
+          "default": "",
+          "field_number": 10
+        }
+      },
+      "description": "Sales order header schema version 1",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2024-12-27T13:42:28+01:00",
+      "compatibility": "forward"
+    },
+    "2": {
+      "version": 2,
+      "name": "sales_order_header",
+      "node_metadata": {
+        "upgrade_behavior": "merge_data",
+        "versioning": "enabled",
+        "archive_old_versions": true,
+        "validation_on_update": true,
+        "audit_changes": true,
+        "cascade_delete": true
+      },
+      "fields": {
+        "id": {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Unique identifier",
+          "field_number": 1
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "datetime",
+          "required": true,
+          "validation": "strict",
+          "description": "Creation timestamp",
+          "field_number": 2
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "datetime",
+          "required": true,
+          "validation": "strict",
+          "description": "Last update timestamp",
+          "field_number": 3
+        },
+        "customer_name": {
+          "name": "customer_name",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Customer name",
+          "field_number": 4
+        },
+        "customer_email": {
+          "name": "customer_email",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Customer email",
+          "field_number": 5
+        },
+        "customer_phone": {
+          "name": "customer_phone",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Customer phone",
+          "field_number": 6
+        },
+        "shipping_address": {
+          "name": "shipping_address",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Shipping address",
+          "field_number": 7
+        },
+        "order_date": {
+          "name": "order_date",
+          "type": "datetime",
+          "required": true,
+          "validation": "strict",
+          "description": "Order date",
+          "field_number": 8
+        },
+        "payment_method": {
+          "name": "payment_method",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Payment method",
+          "field_number": 9
+        },
+        "external_opportunity_id": {
+          "name": "external_opportunity_id",
+          "type": "string",
+          "required": false,
+          "validation": "none",
+          "description": "External opportunity ID for integration with other systems",
+          "default": "",
+          "field_number": 10
+        },
+        "subscription_id": {
+          "name": "subscription_id",
+          "type": "string",
+          "required": false,
+          "validation": "none",
+          "description": "Associated subscription ID for recurring orders",
+          "field_number": 11
+        }
+      },
+      "description": "Sales order header schema version 2 - Added subscription_id field",
+      "valid_from": "2024-12-27T13:42:28+01:00",
+      "valid_to": null,
+      "compatibility": "forward"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "versions": {
+    "1": {
+      "version": 1,
+      "type": "masterdata/customer",
+      "name": "masterdata/customer",
+      "description": "Metadata for masterdata/customer",
+      "_schema_version": 1,
+      "valid_from": "2025-01-01T16:09:53.300046",
+      "valid_to": null,
+      "compatibility": "forward",
+      "node_metadata": {
+        "upgrade_behavior": "merge_data",
+        "versioning": "enabled",
+        "archive_old_versions": true,
+        "validation_on_update": true,
+        "audit_changes": true,
+        "cascade_delete": true
+      },
+      "fields": {}
+    }
+  }
+}

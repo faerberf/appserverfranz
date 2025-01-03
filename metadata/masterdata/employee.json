@@ -1,0 +1,23 @@
+{
+  "versions": {
+    "1": {
+      "version": 1,
+      "type": "masterdata/employee",
+      "name": "masterdata/employee",
+      "description": "Metadata for masterdata/employee",
+      "_schema_version": 1,
+      "valid_from": "2025-01-03T09:10:30.881356",
+      "valid_to": null,
+      "compatibility": "forward",
+      "node_metadata": {
+        "upgrade_behavior": "merge_data",
+        "versioning": "enabled",
+        "archive_old_versions": true,
+        "validation_on_update": true,
+        "audit_changes": true,
+        "cascade_delete": true
+      },
+      "fields": {}
+    }
+  }
+}

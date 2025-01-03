@@ -1,0 +1,20 @@
+{
+  "data": {
+    "customer_name": "D.A.S. Consulting GbR Anja Gerstmair & Franz Faerber",
+    "customer_email": "",
+    "customer_phone": "",
+    "shipping_address": "",
+    "payment_method": "credit_card",
+    "id": 2,
+    "date_from": "2024-12-31T16:24:05.443693+00:00",
+    "date_to": null,
+    "created_at": "2024-12-31T16:24:05.443693+00:00",
+    "updated_at": "2024-12-31T16:24:05.443693+00:00"
+  },
+  "_schema_version": 2,
+  "created_at": "2024-12-31T16:24:05.444702+00:00",
+  "updated_at": "2024-12-31T16:24:05.444702+00:00",
+  "data_version": 1,
+  "date_from": "2024-12-31T16:24:05.444702+00:00",
+  "date_to": null
+}

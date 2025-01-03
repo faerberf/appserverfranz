@@ -1,0 +1,21 @@
+{
+  "data": {
+    "product_code": "code1",
+    "product_name": "Canabis",
+    "price": "99.0",
+    "quantity": 5,
+    "unit": "pcs",
+    "order_id": "3",
+    "id": 5,
+    "date_from": "2024-12-31T18:29:35.914608+00:00",
+    "date_to": null,
+    "created_at": "2024-12-31T18:29:35.914608+00:00",
+    "updated_at": "2024-12-31T18:29:35.914608+00:00"
+  },
+  "_schema_version": 2,
+  "created_at": "2024-12-31T18:29:35.915607+00:00",
+  "updated_at": "2024-12-31T18:29:35.915607+00:00",
+  "data_version": 1,
+  "date_from": "2024-12-31T18:29:35.915607+00:00",
+  "date_to": null
+}

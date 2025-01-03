@@ -1,0 +1,191 @@
+{
+  "versions": {
+    "1": {
+      "version": 1,
+      "name": "sales_order_item",
+      "node_metadata": {
+        "upgrade_behavior": "merge_data",
+        "versioning": "enabled",
+        "archive_old_versions": true,
+        "validation_on_update": true,
+        "audit_changes": true,
+        "parent_node": "sales_order_header",
+        "cascade_delete": true
+      },
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2024-06-30T23:59:59Z",
+      "compatibility": "forward",
+      "fields": {
+        "id": {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Unique identifier",
+          "field_number": 1
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "datetime",
+          "required": true,
+          "validation": "strict",
+          "description": "Creation timestamp",
+          "field_number": 2
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "datetime",
+          "required": true,
+          "validation": "strict",
+          "description": "Last update timestamp",
+          "field_number": 3
+        },
+        "order_id": {
+          "name": "order_id",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Reference to sales order header",
+          "field_number": 4
+        },
+        "product_code": {
+          "name": "product_code",
+          "type": "string",
+          "field_number": 5,
+          "required": true,
+          "validation": "strict",
+          "description": "Product code"
+        },
+        "product_name": {
+          "name": "product_name",
+          "type": "string",
+          "field_number": 6,
+          "required": true,
+          "validation": "strict",
+          "description": "Product name"
+        },
+        "price": {
+          "name": "price",
+          "type": "decimal",
+          "field_number": 7,
+          "required": true,
+          "validation": "strict",
+          "min_value": 0,
+          "description": "Unit price"
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "decimal",
+          "field_number": 8,
+          "required": true,
+          "validation": "strict",
+          "min_value": 1,
+          "description": "Quantity ordered"
+        },
+        "unit": {
+          "name": "unit",
+          "type": "string",
+          "field_number": 9,
+          "required": true,
+          "validation": "strict",
+          "description": "Unit of measure"
+        }
+      },
+      "description": "Sales order item schema version 1"
+    },
+    "2": {
+      "version": 2,
+      "name": "sales_order_item",
+      "node_metadata": {
+        "upgrade_behavior": "merge_data",
+        "versioning": "enabled",
+        "archive_old_versions": true,
+        "validation_on_update": true,
+        "audit_changes": true,
+        "parent_node": "sales_order_header",
+        "cascade_delete": true
+      },
+      "valid_from": "2024-07-01T00:00:00Z",
+      "valid_to": null,
+      "compatibility": "forward",
+      "fields": {
+        "id": {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Unique identifier",
+          "field_number": 1
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "datetime",
+          "required": true,
+          "validation": "strict",
+          "description": "Creation timestamp",
+          "field_number": 2
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "datetime",
+          "required": true,
+          "validation": "strict",
+          "description": "Last update timestamp",
+          "field_number": 3
+        },
+        "order_id": {
+          "name": "order_id",
+          "type": "string",
+          "required": true,
+          "validation": "strict",
+          "description": "Reference to sales order header",
+          "field_number": 4
+        },
+        "product_code": {
+          "name": "product_code",
+          "type": "string",
+          "field_number": 5,
+          "required": true,
+          "validation": "strict",
+          "description": "Product code"
+        },
+        "product_name": {
+          "name": "product_name",
+          "type": "string",
+          "field_number": 6,
+          "required": true,
+          "validation": "strict",
+          "description": "Product name"
+        },
+        "price": {
+          "name": "price",
+          "type": "decimal",
+          "field_number": 7,
+          "required": true,
+          "validation": "strict",
+          "min_value": 0,
+          "description": "Unit price"
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "decimal",
+          "field_number": 8,
+          "required": true,
+          "validation": "strict",
+          "min_value": 1,
+          "default": 1,
+          "description": "Quantity ordered"
+        },
+        "unit": {
+          "name": "unit",
+          "type": "string",
+          "field_number": 9,
+          "required": true,
+          "validation": "strict",
+          "description": "Unit of measure"
+        }
+      },
+      "description": "Sales order item schema with evolution support"
+    }
+  }
+}

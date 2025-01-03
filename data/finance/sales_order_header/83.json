@@ -1,0 +1,46 @@
+[
+  {
+    "data": {
+      "customer_name": "Test Customer",
+      "customer_email": "test@example.com",
+      "customer_phone": "555-0123",
+      "shipping_address": "123 Main St",
+      "order_date": "2024-12-28T19:38:33.812962",
+      "payment_method": "credit_card",
+      "id": 83,
+      "date_from": "2024-12-28T18:38:33.813960+00:00",
+      "date_to": null,
+      "created_at": "2024-12-28T18:38:33.813960+00:00",
+      "updated_at": "2024-12-28T18:38:33.813960+00:00"
+    },
+    "_schema_version": 1,
+    "created_at": "2024-12-28T18:38:33.815391+00:00",
+    "updated_at": "2024-12-28T18:38:33.815391+00:00",
+    "data_version": 1,
+    "date_from": "2024-12-28T18:38:33.815391+00:00",
+    "date_to": null
+  },
+  {
+    "data": {
+      "customer_name": "Updated Customer",
+      "customer_email": "updated@example.com",
+      "customer_phone": "555-9999",
+      "shipping_address": "456 New St",
+      "order_date": "2024-12-28T19:38:33.834285",
+      "payment_method": "bank_transfer",
+      "id": 83,
+      "date_from": "2024-12-28T18:38:33.813960+00:00",
+      "date_to": null,
+      "created_at": "2024-12-28T18:38:33.813960+00:00",
+      "updated_at": "2024-12-28T18:38:33.813960+00:00",
+      "_schema_version": 1,
+      "date_modified": "2024-12-28T18:38:33.840448+00:00"
+    },
+    "_schema_version": 1,
+    "created_at": "2024-12-28T18:38:33.841953+00:00",
+    "updated_at": "2024-12-28T18:38:33.841953+00:00",
+    "data_version": 2,
+    "date_from": "2024-12-28T18:38:33.841953+00:00",
+    "date_to": null
+  }
+]

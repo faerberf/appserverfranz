@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: type_system
+Version: 0.1.0
+Summary: A model-based type system
+Home-page: https://github.com/yourusername/type_system
+Author: Your Name
+Author-email: your.email@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Model-Based Type System
+
+This project implements a model-based type system as described in the design document.
+
+## Directory Structure
+
+-   `core`: Contains the core implementation of the type system.
+-   `connectors`: Contains connectors for external data sources.
+-   `definitions`: Contains example type definitions.
+-   `tests`: Contains unit and integration tests.
+-   `examples`: Contains standalone usage examples.
+
+## Usage
+
+See `examples/example_usage.py` for a basic usage example.
+
+## Running Tests
+
+```bash
+python -m unittest discover type_system/tests
