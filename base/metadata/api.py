@@ -321,17 +321,22 @@ class MetadataAPI:
 
             else:
                 # If fields is None, just update some metadata in the current version
+                updates = {}
                 if description is not None:
-                    current_version["description"] = description
+                    updates["description"] = description
                 if node_metadata is not None:
-                    current_version["node_metadata"] = node_metadata
+                    updates["node_metadata"] = node_metadata
                 if upgrade_definitions is not None:
-                    current_version["upgrade_definitions"] = upgrade_definitions
+                    updates["upgrade_definitions"] = upgrade_definitions
                 if _schema_version is not None:
                     # ensure we are not downgrading
                     if _schema_version < current_schema_version:
-                        raise ValueError(f"Cannot downgrade version from {current_schema_version} to {_schema_version}")
-                    current_version["_schema_version"] = _schema_version
+                        raise ValueError(
+                            f"Cannot downgrade version from {current_schema_version} to {_schema_version}"
+                        )
+                    updates["_schema_version"] = _schema_version
+                if updates:
+                    self._update_current_metadata(current_version, updates)
 
             # Write out changes
             path = self._get_metadata_path(node_type)
@@ -343,19 +348,12 @@ class MetadataAPI:
             print(f"Error updating metadata: {str(e)}")
             raise
 
-        
-    def update_metadata(self, node_type: str, metadata: dict) -> bool:
+    def _update_current_metadata(self, current_version: Dict[str, Any], updates: Dict[str, Any]) -> None:
         """
-        Update metadata for a given node type.
+        Apply simple updates to the current metadata version.
         """
-        try:
-            self._validate_node_type(node_type)
-            current_version = self._get_current_metadata(node_type)
-            current_version.update(metadata)
-            return True
-        except Exception as e:
-            print(f"Error updating metadata: {str(e)}")
-            raise
+        current_version.update(updates)
+
     def delete_metadata(self, node_type: str) -> bool:
         """
         Delete metadata file for a node type.
