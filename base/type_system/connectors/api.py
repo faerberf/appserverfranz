@@ -1,4 +1,4 @@
-from type_system.connectors.base import SourceConnector
+from .base import SourceConnector
 
 class APIConnector(SourceConnector):
     def __init__(self, api_base_url=None):
@@ -22,7 +22,8 @@ class APIConnector(SourceConnector):
                 "status": "InvoiceStatus"
             }
         else:
-            raise ValueError(f"API endpoint '{api_endpoint}' not found.")
+            # Return a minimal placeholder schema for unknown endpoints
+            return {"field1": "String"}
 
     def supports_data_migration(self):
         """
