@@ -66,7 +66,7 @@ def main():
         
 
         
-        # Create test order with 1 items
+        # Create test order with 1 item
         order_data = {
             "customer_name": "Test Customer",
             "customer_email": "test@example.com",
