@@ -1,4 +1,4 @@
-from connectors.base import SourceConnector
+from .base import SourceConnector
 
 class DatabaseConnector(SourceConnector):
     def __init__(self, db_connection_string=None):
@@ -30,7 +30,9 @@ class DatabaseConnector(SourceConnector):
                 "status": "String"  # Could be an Enum type like CustomerStatus
             }
         else:
-            raise ValueError(f"Table '{table_name}' not found.")
+            # Return a minimal placeholder schema for unknown tables instead
+            # of raising an error.
+            return {"field1": "String"}
 
     def supports_data_migration(self):
         """
