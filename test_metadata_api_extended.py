@@ -158,12 +158,15 @@ class TestMetadataAPIExtended(unittest.TestCase):
         # Verify constraints are preserved
         metadata = self.api.get_metadata("test/constraints")
         self.assertIsNotNone(metadata)
-        version = metadata["versions"][0]
+        version = next(iter(metadata["versions"].values()))
+        age_field = version["fields"]["age"]
+        self.assertEqual(age_field["constraints"]["min"], 0)
+        self.assertEqual(age_field["constraints"]["max"], 150)
+        email_field = version["fields"]["email"]
         self.assertEqual(
-            version["fields"][0]["constraints"]["max"],
-            150
+            email_field["constraints"]["pattern"],
+            r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         )
-        self.assertIn("pattern", version["fields"][1]["constraints"])
         
     def test_invalid_node_type(self):
         """Test creating metadata with invalid node type."""
