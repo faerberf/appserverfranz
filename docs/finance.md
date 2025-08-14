@@ -5,109 +5,128 @@ The finance package provides functionality for managing sales orders and related
 
 ## Classes
 
-### SalesOrderHeader (implements Node)
-Sales order header node implementation.
+### SalesOrderHeader (`Node`)
+Operations for sales order headers.
 
 #### Methods
 ```python
-def create(self, customer_name: str, customer_email: str, shipping_address: str,
-           order_date: str, payment_method: str) -> str
+def create(self, **data) -> str
 ```
 Create a new sales order header.
-- `customer_name`: Name of the customer
-- `customer_email`: Email address of the customer
-- `shipping_address`: Shipping address for the order
-- `order_date`: Date of the order (ISO format)
-- `payment_method`: Payment method used
-- Returns: ID of created sales order header
 
 ```python
-def query(self, customer_email: Optional[str] = None, status: Optional[str] = None) -> List[Dict[str, Any]]
+def read(self, node_id: str) -> Optional[Dict[str, Any]]
 ```
-Query sales order headers.
-- `customer_email`: Optional filter by customer email
-- `status`: Optional filter by order status
-- Returns: List of matching headers
+Retrieve a sales order header by ID.
 
 ```python
-def update_status(self, header_id: str, new_status: str) -> bool
+def update(self, node_id: str, data: Dict[str, Any]) -> bool
 ```
-Update the status of a sales order.
-- `header_id`: ID of the sales order header
-- `new_status`: New status to set
-- Returns: True if update successful
+Update fields on a sales order header.
 
-### SalesOrderItem (implements Node)
-Sales order item node implementation.
+```python
+def update_status(self, node_id: str, new_status: str) -> bool
+```
+Update the `status` field of a sales order header.
+
+```python
+def delete(self, node_id: str) -> bool
+```
+Mark a sales order header as deleted by setting `date_to`.
+
+### SalesOrderItem (`Node`)
+Operations for individual sales order items.
 
 #### Methods
 ```python
-def create(self, sales_order_id: str, product_code: str, product_name: str,
-           price: Decimal, quantity: int, unit: str, discount: Decimal = Decimal("0.00")) -> str
+def create(self, **data) -> str
 ```
 Create a new sales order item.
-- `sales_order_id`: ID of parent sales order header
-- `product_code`: Product code reference
-- `product_name`: Name of the product
-- `price`: Unit price of the product
-- `quantity`: Quantity ordered
-- `unit`: Unit of measurement
-- `discount`: Discount percentage (0-1)
-- Returns: ID of created sales order item
 
 ```python
-def query(self, sales_order_id: Optional[str] = None) -> List[Dict[str, Any]]
+def read(self, node_id: str) -> Optional[Dict[str, Any]]
 ```
-Query sales order items.
-- `sales_order_id`: Optional filter by parent sales order
-- Returns: List of matching items
+Retrieve a sales order item by ID.
+
+```python
+def query(self, **kwargs) -> List[Dict[str, Any]]
+```
+Query sales order items, for example by `order_id`.
+
+```python
+def update(self, node_id: str, data: Dict[str, Any]) -> bool
+```
+Update fields on a sales order item.
+
+```python
+def delete(self, node_id: str) -> bool
+```
+Mark a sales order item as deleted by setting `date_to`.
 
 ### SalesOrder
-Facade for managing sales orders, combining header and item operations.
+Facade combining header and item operations.
 
 #### Constructor
 ```python
 def __init__(self, generator: Generator)
 ```
-- `generator`: Generator instance for node operations
 
 #### Methods
 ```python
-def create_header(self, customer_name: str, customer_email: str, shipping_address: str,
-                 order_date: str, payment_method: str) -> str
+def create_order(self, header_data: Dict[str, Any], items_data: List[Dict[str, Any]]) -> Dict[str, Any]
 ```
-Create a new sales order header.
-- Delegates to SalesOrderHeader.create()
+Create a new sales order along with its items.
 
 ```python
-def create_item(self, sales_order_id: str, product_code: str, product_name: str,
-               price: Decimal, quantity: int, unit: str, discount: Decimal = Decimal("0.00")) -> str
+def get_order(self, header_id: str) -> Optional[Dict[str, Any]]
 ```
-Create a new sales order item.
-- Delegates to SalesOrderItem.create()
+Retrieve an order and its items.
 
 ```python
-def get_header(self, header_id: str) -> Optional[Dict[str, Any]]
+def update_order(self, header_id: str, header_data: Optional[Dict[str, Any]] = None,
+                 items_data: Optional[List[Dict[str, Any]]] = None) -> bool
 ```
-Get sales order header by ID.
-- Delegates to SalesOrderHeader.read()
-
-```python
-def get_items(self, header_id: str) -> List[Dict[str, Any]]
-```
-Get all items for a sales order.
-- Delegates to SalesOrderItem.query()
-
-```python
-def calculate_total(self, header_id: str) -> Decimal
-```
-Calculate and update total amount for a sales order.
-- Calculates total from items
-- Updates header with new total
-- Returns calculated total
+Update an existing order.
 
 ```python
 def update_status(self, header_id: str, new_status: str) -> bool
 ```
-Update the status of a sales order.
-- Delegates to SalesOrderHeader.update_status()
+Update the status of an existing order.
+
+```python
+def delete_order(self, header_id: str) -> bool
+```
+Delete an order including its items.
+
+### SalesOrderAPI
+API layer that adds version handling to `SalesOrder`.
+
+#### Methods
+```python
+def create_order(self, api_version: str, order_data: Dict[str, Any],
+                 items_data: List[Dict[str, Any]]) -> Dict[str, Any]
+```
+Create a new order via the API.
+
+```python
+def get_order(self, api_version: str, header_id: str) -> Optional[Dict[str, Any]]
+```
+Fetch an order via the API.
+
+```python
+def update_order(self, api_version: str, header_id: str,
+                 order_data: Optional[Dict[str, Any]] = None,
+                 items_data: Optional[List[Dict[str, Any]]] = None) -> bool
+```
+Update an order via the API.
+
+```python
+def delete_order(self, api_version: str, header_id: str) -> bool
+```
+Delete an order via the API.
+
+```python
+def list_orders(self, api_version: str) -> List[Dict[str, Any]]
+```
+List all orders with basic information.
+

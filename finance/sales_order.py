@@ -87,6 +87,18 @@ class SalesOrderHeader(Node):
         
         # Update node
         return self.generator.update_node(self._get_node_type(), node_id, current)
+
+    def update_status(self, node_id: str, new_status: str) -> bool:
+        """Update the status of a sales order header.
+
+        Args:
+            node_id: Node ID
+            new_status: New status value
+
+        Returns:
+            bool: True if updated, False if not found
+        """
+        return self.update(node_id, {"status": new_status})
         
     def delete(self, node_id: str) -> bool:
         """Delete a sales order header.
@@ -313,7 +325,19 @@ class SalesOrder:
             
         except Exception:
             return False
-            
+
+    def update_status(self, header_id: str, new_status: str) -> bool:
+        """Update the status of an existing sales order.
+
+        Args:
+            header_id: Order header ID
+            new_status: New status value
+
+        Returns:
+            bool: True if updated, False if not found
+        """
+        return self.header.update_status(header_id, new_status)
+
     def delete_order(self, header_id: str) -> bool:
         """Delete a sales order.
         
